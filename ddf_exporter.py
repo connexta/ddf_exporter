@@ -15,6 +15,7 @@ class DDFCollector:
         self.metric_prefix = os.getenv('METRIC_PREFIX', 'ddf_')
         self.host = os.getenv('HOST_ADDRESS', 'https://localhost')
         self.hostname = self.host.split('://')[1]
+        self.sitename = os.getenv('SITE_NAME', self.hostname)
         self.host_port = os.getenv('HOST_PORT', 8993)
         self.metric_api_location = os.getenv('METRIC_API_LOCATION',
                                              'services/internal/metrics')
@@ -35,7 +36,7 @@ class DDFCollector:
         self.metric_results = self.populate_and_fetch_metrics(
             self.metric_endpoints,
             self.metric_prefix,
-            labels={'host': self.host, 'hostname': self.hostname})
+            labels={'host': self.host, 'hostname': self.hostname, 'sitename': self.sitename})
 
         # yield the data as metrics
         for metric_name in self.metric_endpoints.keys():
