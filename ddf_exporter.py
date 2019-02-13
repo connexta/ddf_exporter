@@ -14,7 +14,7 @@ class DDFCollector:
 
         self.metric_prefix = os.getenv('METRIC_PREFIX', 'ddf_')
         self.host = os.getenv('HOST_ADDRESS', 'https://localhost')
-        self.hostname = self.host.split('://')[1]
+        self.hostname = self.host.split('://')[-1]
         self.sitename = os.getenv('SITE_NAME', self.hostname)
         self.host_port = os.getenv('HOST_PORT', 8993)
         self.metric_api_location = os.getenv('METRIC_API_LOCATION',
