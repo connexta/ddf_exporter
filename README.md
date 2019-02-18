@@ -14,6 +14,7 @@ This exporter can be configured using environment variables, they are as follows
 | `METRIC_PREFIX` | "ddf_" | What to prepend to all of the gathered metrics
 | `HOST_ADDRESS` | "https://localhost" | The address to gather metrics from. Please include the http:// or https://
 | `HOST_PORT` | 8993 | The port to gather metrics from
+| `SITE_NAME` | The host address without http:// or https:// | The name for the DDF instance that is providing metrics
 | `METRIC_API_LOCATION` | "services/internal/metrics" | The path to the metrics endpoint
 | `SECURE` | "True" | Whether to use ssl for the connection. <br/> If true, you must point to a valid ca cert in the next parameter
 | `CA_CERT_PATH` | "/certs/ca.pem" | The path to the ca cert to be used during secure connections
@@ -34,6 +35,7 @@ This exporter can be configured using environment variables, they are as follows
           BIND_PORT: 9170
           HOST_ADDRESS: "https://localhost"
           HOST_PORT: 8993
+          SITE_NAME: "My local DDF"
           METRIC_PREFIX: "ddf_"
           METRIC_API_LOCATION: "services/internal/metrics"
           SECURE: "True"
